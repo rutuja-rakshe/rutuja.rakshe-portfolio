@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rutuja Rakshe — Cloud & DevOps Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg2: #f9f9f8;
+      --bg3: #f3f2ef;
+      --ink: #111110;
+      --ink2: #3d3c3a;
+      --muted: #8a8880;
+      --accent: #1a1a1a;
+      --gold: #c4985a;
+      --gold-light: #f0e4d0;
+      --gold-pale: #faf6f0;
+      --border: #e8e6e1;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── PAGE SECTIONS ── */
+    section { position: relative; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 6vw 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5vw;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 24px; height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink2);
+      max-width: 520px;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 26px;
+      border-radius: 0;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      border: 1px solid var(--ink);
+    }
+    .btn-primary:hover { background: var(--gold); border-color: var(--gold); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--ink); }
+
+    /* STATS BLOCK */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .stat {
+      background: var(--bg);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-lbl {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .sec-wrap {
+      padding: 80px 6vw;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sec-wrap:last-of-type { border-bottom: none; }
+
+    .sec-alt { background: var(--bg2); }
+
+    .sec-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sec-num {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    /* ── SKILLS ── */
+    .skill-rows { display: flex; flex-direction: column; }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .skill-row:last-child { border-bottom: none; }
+
+    .skill-cat {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 5px;
+    }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .pill {
+      font-size: 12px;
+      font-weight: 400;
+      padding: 5px 14px;
+      background: var(--bg3);
+      color: var(--ink2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+    .pill:hover { background: var(--gold-pale); border-color: var(--gold-light); color: var(--ink); }
+
+    .cert-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 2rem;
+      padding: 12px 20px;
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-light);
+    }
+
+    .cert-row strong { font-weight: 500; color: var(--gold); font-size: 13px; }
+    .cert-row span { font-size: 12px; color: var(--muted); }
+
+    /* ── PROJECTS ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+    }
+
+    .proj-card {
+      padding: 2rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      background: var(--bg);
+      transition: background 0.18s;
+    }
+    .proj-card:nth-child(2n) { border-right: none; }
+    .proj-card:nth-child(3), .proj-card:nth-child(4) { border-bottom: none; }
+    .proj-card:hover { background: var(--gold-pale); }
+
+    .proj-index {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .proj-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .proj-card p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .proj-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .proj-link {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .proj-link:hover { color: var(--gold); }
+
+    .proj-stack {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── EDUCATION & ACHIEVEMENTS ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw;
+    }
+
+    .col-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-block {
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--gold-light);
+    }
+
+    .edu-block h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .edu-block .school {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .edu-block .detail { font-size: 13px; color: var(--ink2); }
+
+    .ach-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .ach-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+    .ach-dot {
+      width: 32px; height: 32px;
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .ach-item h4 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 3px;
+    }
+
+    .ach-item p { font-size: 13px; font-weight: 300; color: var(--ink2); line-height: 1.7; }
+
+    /* ── CONTACT ── */
+    .contact-sec {
+      text-align: center;
+      padding: 80px 6vw;
+      background: var(--ink);
+    }
+
+    .contact-sec h2 {
+      color: #fff;
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-sub {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .c-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border: 1px solid rgba(255,255,255,0.15);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      transition: all 0.2s;
+    }
+    .c-link:hover { border-color: var(--gold); color: var(--gold); }
+    .c-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FADE-IN ── */
+    .fi { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fi.v { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .proj-card:nth-child(n) { border-right: none; border-bottom: 1px solid var(--border); }
+      .proj-card:last-child { border-bottom: none; }
+      .two-col { grid-template-columns: 1fr; gap: 3rem; }
+      .skill-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Rutuja <span>Rakshe</span></div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="fi">
+      <div class="hero-tag">Available for opportunities</div>
+      <h1>Rutuja<br>Rakshe</h1>
+      <p class="hero-sub">Cloud &amp; DevOps · Backend · AI / ML</p>
+      <p class="hero-desc">
+        Computer Science & Business Systems student building production-grade infrastructure on AWS — from containerised ML deployments to full-stack cloud applications and automated CI/CD pipelines.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://github.com/rutuja-rakshe" target="_blank" class="btn btn-secondary">GitHub ↗</a>
+        <a href="https://linkedin.com/in/rutuja-rakshe" target="_blank" class="btn btn-secondary">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="hero-stats fi">
+      <div class="stat"><span class="stat-val">8.3</span><span class="stat-lbl">CGPA</span></div>
+      <div class="stat"><span class="stat-val">AWS</span><span class="stat-lbl">Certified</span></div>
+      <div class="stat"><span class="stat-val">11</span><span class="stat-lbl">Repos</span></div>
+      <div class="stat"><span class="stat-val">1st</span><span class="stat-lbl">TechnoFiesta</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="sec-wrap sec-alt" id="skills">
+  <div class="sec-header fi">
+    <span class="sec-num">01</span>
+    <h2>Skills &amp; Technologies</h2>
+  </div>
+  <div class="skill-rows fi">
+    <div class="skill-row">
+      <span class="skill-cat">Cloud &amp; DevOps</span>
+      <div class="pills">
+        <span class="pill">AWS EC2</span><span class="pill">RDS</span><span class="pill">S3</span>
+        <span class="pill">CloudFront</span><span class="pill">VPC</span><span class="pill">IAM</span>
+        <span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">Nginx</span>
+        <span class="pill">GitHub Actions</span><span class="pill">Linux</span><span class="pill">Shell Scripting</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-cat">Backend</span>
+      <div class="pills">
+        <span class="pill">Python</span><span class="pill">Django REST</span><span class="pill">FastAPI</span>
+        <span class="pill">REST API Design</span><span class="pill">Gunicorn</span><span class="pill">JWT</span>
+        <span class="pill">Celery</span><span class="pill">PostgreSQL</span><span class="pill">MySQL</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-cat">AI / ML</span>
+      <div class="pills">
+        <span class="pill">TensorFlow / Keras</span><span class="pill">LSTM</span><span class="pill">CNN</span>
+        <span class="pill">RNN</span><span class="pill">NLP</span><span class="pill">Scikit-learn</span>
+        <span class="pill">LLM Concepts</span><span class="pill">Apriori Algorithm</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-cat">QA &amp; Testing</span>
+      <div class="pills">
+        <span class="pill">Postman</span><span class="pill">Swagger</span><span class="pill">pytest</span>
+        <span class="pill">Selenium</span><span class="pill">JMeter</span><span class="pill">Manual Testing</span>
+      </div>
+    </div>
+  </div>
+  <div class="cert-row fi">
+    <strong>AWS Cloud Practitioner Essentials</strong>
+    <span>Amazon Web Services (AWS) — Certified</span>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec-wrap" id="projects">
+  <div class="sec-header fi">
+    <span class="sec-num">02</span>
+    <h2>Selected Projects</h2>
+  </div>
+  <div class="proj-grid fi">
+
+    <div class="proj-card">
+      <span class="proj-index">01</span>
+      <h3>Full Stack Expense Tracker</h3>
+      <p>React + Django REST app deployed on AWS using EC2, RDS PostgreSQL, S3 static hosting, and CloudFront CDN. Configured VPC with public/private subnets, IAM least-privilege policies, and a GitHub Actions CI/CD pipeline via ECR push and EC2 deploy through SSM.</p>
+      <div class="proj-bottom">
+        <a href="https://github.com/rutuja-rakshe/FullStackApp_Deplyment_AWS" target="_blank" class="proj-link">View on GitHub →</a>
+        <span class="proj-stack">Django · React · AWS · Docker</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <span class="proj-index">02</span>
+      <h3>Emoji Predictor MLOps Deployment</h3>
+      <p>LSTM/Keras emoji prediction model served as a REST API via FastAPI, containerised with Docker, and deployed on AWS EC2 with Nginx as reverse proxy — demonstrating a complete end-to-end MLOps lifecycle from model training to live HTTP routing.</p>
+      <div class="proj-bottom">
+        <a href="https://github.com/rutuja-rakshe/emoji-predictor-MLOps-deployment" target="_blank" class="proj-link">View on GitHub →</a>
+        <span class="proj-stack">FastAPI · Docker · AWS EC2 · Nginx</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <span class="proj-index">03</span>
+      <h3>Café Apriori Streamlit App</h3>
+      <p>Streamlit application for frequent itemset mining using the Apriori algorithm on café transaction data. Visualises association rules and confidence metrics to uncover product bundling opportunities from real-world order data.</p>
+      <div class="proj-bottom">
+        <a href="https://github.com/rutuja-rakshe/cafe-apriori-streamlit" target="_blank" class="proj-link">View on GitHub →</a>
+        <span class="proj-stack">Python · Streamlit · ML</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <span class="proj-index">04</span>
+      <h3>Linux Nginx Docker DevOps</h3>
+      <p>Automated deployment of Nginx web server using Docker and Bash scripting on AWS EC2. Features cron-based scheduling, log monitoring, and fully scripted infrastructure management for repeatable deployments.</p>
+      <div class="proj-bottom">
+        <a href="https://github.com/rutuja-rakshe/linux-nginx-docker-devops-project" target="_blank" class="proj-link">View on GitHub →</a>
+        <span class="proj-stack">Bash · Docker · Nginx · AWS EC2</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION & ACHIEVEMENTS -->
+<section class="sec-wrap sec-alt" id="about">
+  <div class="sec-header fi">
+    <span class="sec-num">03</span>
+    <h2>Education &amp; Achievements</h2>
+  </div>
+  <div class="two-col fi">
+
+    <div>
+      <p class="col-label">Education</p>
+      <div class="edu-block">
+        <h3>B.Tech — Computer Science &amp; Business Systems</h3>
+        <p class="school">JSPM's Rajarshi Shahu College of Engineering (RSCOE), Pune &nbsp;·&nbsp; 2023–2027</p>
+        <p class="detail">CGPA: 8.3 &nbsp;·&nbsp; Specialising in cloud infrastructure, backend engineering, and applied machine learning.</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="col-label">Achievements &amp; Activities</p>
+      <div class="ach-list">
+        <div class="ach-item">
+          <div class="ach-dot">🏆</div>
+          <div>
+            <h4>1st Prize — TechnoFiesta Inter-College Competition</h4>
+            <p>Won among 60+ participants across Technical Quiz and Project Presentation rounds as part of a 3-member team.</p>
+          </div>
+        </div>
+        <div class="ach-item">
+          <div class="ach-dot">⚡</div>
+          <div>
+            <h4>Technical Volunteer — Innovision Hackathon, Feb 2025</h4>
+            <p>Ensured smooth Devfolio submission workflows and platform stability under a fast-paced, time-pressured hackathon environment.</p>
+          </div>
+        </div>
+        <div class="ach-item">
+          <div class="ach-dot">🤝</div>
+          <div>
+            <h4>Sponsorship Coordinator — Innovision Hackathon, Feb 2025</h4>
+            <p>Coordinated with industry partners and secured sponsorships for a 24-hour hackathon event as part of the department club.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <h2>Let's Connect</h2>
+  <p class="contact-sub">Open to internships and opportunities in Cloud, DevOps &amp; Backend Engineering</p>
+  <div class="contact-links fi">
+    <a href="mailto:raksherutuja12@gmail.com" class="c-link">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      raksherutuja12@gmail.com
+    </a>
+    <a href="https://linkedin.com/in/rutuja-rakshe" target="_blank" class="c-link">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/rutuja-rakshe" target="_blank" class="c-link">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <a href="tel:+919699947037" class="c-link">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      +91 96999 47037
+    </a>
+  </div>
+</section>
+
+<footer>© 2025 Rutuja Rakshe &nbsp;·&nbsp; Deployed via GitHub Actions</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
